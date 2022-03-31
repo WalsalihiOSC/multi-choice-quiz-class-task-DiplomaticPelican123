@@ -4,10 +4,14 @@ from tkinter import *
 
 CITIES = [
     "Auckland",
-    "Wellington",
+    "Queenstown",
     "Northland",
     "Bay of Plenty",
-    "Taranaki"
+    "Taranaki",
+    "Wellington",
+    "Manukau",
+    "Manurewa",
+    "East Tamaki"
 ]
 
 CAPITAL_CITY = "Wellington"
@@ -24,13 +28,24 @@ class Quiz:
         self.city_var.set("?")
 
         cities_frame = Frame(root)
+        answer_frame = Frame(root)
         cities_frame.grid()
+        answer_frame.grid()
+
+        l1 = Label(cities_frame, text = "What Is The Capital Of New Zealand?")
+        l1.grid()
+
+        self.l2 = Label(answer_frame, text = "")
+        self.l2.grid()
 
         for city in CITIES:
             radio(cities_frame, city, self.city_var)
 
     def update(self):
-        pass
+        if self.city_var.get() == "Wellington":
+            self.l2.configure(text = "Correct")
+        else:
+            self.l2.configure(text = "Incorrect")
 
 
 if __name__ == '__main__':
