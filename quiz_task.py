@@ -10,11 +10,14 @@ CITIES = [
     "Taranaki",
     "Wellington",
     "Manukau",
-    "Manurewa",
+    "Manurewa District",
     "East Tamaki"
 ]
 
-CAPITAL_CITY = "Wellington"
+ANSWER = [
+    "Manurewa District",
+    "Wellington"
+]
 
 class Quiz:
     def __init__(self, root):
@@ -42,7 +45,7 @@ class Quiz:
             radio(cities_frame, city, self.city_var)
 
     def update(self):
-        if self.city_var.get() == "Wellington":
+        if self.city_var.get() in ANSWER:
             self.l2.configure(text = "Correct")
         else:
             self.l2.configure(text = "Incorrect")
@@ -50,7 +53,7 @@ class Quiz:
 
 if __name__ == '__main__':
     root = Tk()
-    root.title("Fun With Cats")
+    root.title("Quiz Task")
     Quiz(root)
     root.update()
     root.mainloop()
